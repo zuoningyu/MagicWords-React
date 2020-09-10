@@ -19,7 +19,7 @@ function SimpleDialog(props) {
           textAlign: "center",
         },
         dialogTitle: {
-            margin: "100px 150px 0px 150px",
+            margin: "60px 150px 0px 150px",
             
             '& h2':{
                 fontSize: "6rem",
@@ -44,12 +44,13 @@ function SimpleDialog(props) {
         <Dialog className={classes.dialog} onClose={props.onClose} aria-labelledby="simple-dialog-title" open={props.open}>
           <DialogTitle className={classes.dialogTitle} id="simple-dialog-title">{props.title}</DialogTitle>
           <span>
-            { !hiddenState ? 
+            {/* { !hiddenState ? 
             <VisibilityOffIcon fontSize="large" className={classes.icon} onClick={() => setHiddenState(!hiddenState)} color="secondary" /> 
-            : <VisibilityIcon fontSize="large" className={classes.icon} onClick={() => setHiddenState(!hiddenState)} color="secondary" />}
-            <VolumeUpOutlinedIcon fontSize="large" className={classes.icon} color="primary" onClick={playSound} name={props.title} />
+            : <VisibilityIcon fontSize="large" className={classes.icon} onClick={() => setHiddenState(!hiddenState)} color="secondary" />} */}
+            {/* <VolumeUpOutlinedIcon fontSize="large" className={classes.icon} color="primary" onClick={playSound} name={props.title} /> */}
+            <Mp3Recoder title={props.title}/>
           </span>
-          <Mp3Recoder title={props.title}/>
+          
         </Dialog>
       );
 

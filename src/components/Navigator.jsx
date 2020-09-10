@@ -20,19 +20,6 @@ function Navigator(props){
                     />
                 )
             })}
-            {/* <FormControlLabel
-                control={<Checkbox checked={props.state.golden} onChange={props.handleChange} name="golden" />}
-                label="Golden Words"
-            />
-            <FormControlLabel
-                control={<Checkbox checked={props.state.blue} onChange={props.handleChange} name="blue" />}
-                label="Blue Words"
-            />
-            <FormControlLabel
-                control={<Checkbox checked={props.state.red} onChange={props.handleChange} name="red" />}
-                label="Red Words"
-            /> */}
-            
         </FormGroup>
     )
 }

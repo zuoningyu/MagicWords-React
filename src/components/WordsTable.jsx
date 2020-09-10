@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Grid, Button } from '@material-ui/core';
+import { Card, Grid, Button, CardContent, Typography, CardActions } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import SimpleDialog from './SimpleDialog';
+import VolumeUpOutlinedIcon from '@material-ui/icons/VolumeUpOutlined';
+import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 
 
 function WordsTable(props){
@@ -17,8 +19,15 @@ function WordsTable(props){
           //padding: "32px 64px",
           fontSize: '3rem',
           textAlign: 'center',
-          color: props.hiddenState ? "transparent" : theme.palette.text.primary
+          color: theme.palette.text.primary
         },
+        word: {
+            fontSize: '3rem',
+            textAlign: 'center',
+        },
+        volume: {
+            textAlign: "end"
+        }
     }));
 
     const classes = useStyles();
@@ -39,38 +48,30 @@ function WordsTable(props){
 
     return(
       <div>
-        
-        {/* <div className={classes.root}>
-            <Grid container spacing={1}>
-                {Object.keys(Words).map(key=>{
-                    if (props.state[key]) {
-                        return(
-                            Words[key].map(word=>{
-                                return (
-                                    <Grid item xs={3}>
-                                        <Card  name={word} className={classes.card} onClick={playSound}>{word}</Card>
-                                    </Grid>
-                                )
-                            })
-                        )
-                    } else return null 
-                })}
-            </Grid>
-        </div> */}
-
         <div className={classes.root}>
             <Grid container spacing={2}>
                 {props.selectedWords.map(word=>{
                     return (
                         <Grid item xs={3}>
-                            <Card  name={word} className={classes.card} onMouseDown={handleClickOpen} onClick={playSound}>{word}</Card>
+                            <Card  name={word} className={classes.card} onClick={handleClickOpen}>
+                                {/* <CardContent> */}
+                                    {/* <Typography className={classes.volume}>
+                                        <VolumeUpOutlinedIcon fontSize="large" name={word} className={classes.icon} onClick={playSound}/>
+                                    </Typography> */}
+                                    {/* <Typography className={classes.word} onClick={handleClickOpen}> */}
+                                        {word}
+                                    {/* </Typography> */}
+                                {/* </CardContent> */}
+                                {/* <CardActions>
+                                    <AspectRatioIcon onClick={handleClickOpen}/>
+                                </CardActions> */}
+                            </Card>
                         </Grid>
                     )})}
             </Grid>
         </div>
 
         <SimpleDialog open={open} onClose={() => setOpen(false)} title={dialogTitle} />
-
       </div>
     )
 

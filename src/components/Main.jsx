@@ -28,7 +28,7 @@ function Main(){
 
     const classes = useStyles();
     const [selectedWords, setSelectedWords] = useState(Words.golden);
-    const [hiddenState, setHiddenState] = useState(false);
+    //const [hiddenState, setHiddenState] = useState(false);
 
     const [state, setState] = React.useState({
         golden: true,
@@ -50,9 +50,9 @@ function Main(){
         setSelectedWords(selectedWords.slice().sort(() => Math.random() - 0.5));
     }
 
-    function hideWords(){
-        setHiddenState(!hiddenState);
-    }
+    // function hideWords(){
+    //     setHiddenState(!hiddenState);
+    // }
 
     
     return (
@@ -64,11 +64,11 @@ function Main(){
         <div className={classes.functionBar}>
             <Button variant="contained" color="primary" onClick={randomWords}>Random</Button>
         
-            <Button variant="contained" color="secondary" onClick={hideWords}>{hiddenState ? "Show" : "Hide"}</Button>
+            {/* <Button variant="contained" color="secondary" onClick={hideWords}>{hiddenState ? "Show" : "Hide"}</Button> */}
         </div>
         
         <div className={classes.table}>
-            <WordsTable selectedWords={selectedWords} hiddenState={hiddenState} />
+            <WordsTable selectedWords={selectedWords} />
         </div>
       </div>
     )
